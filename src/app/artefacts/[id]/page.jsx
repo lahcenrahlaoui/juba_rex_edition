@@ -10,7 +10,7 @@ const ItemDetail = ({ params }) => {
     const [showItem, setShowItem] = useState({});
 
     useEffect(() => {
-        const selectedItem = items.find((item) => item.id === +id);
+        const selectedItem = items.find((item) => item.id === id);
         setShowItem(selectedItem || {});
     }, [id]);
 
