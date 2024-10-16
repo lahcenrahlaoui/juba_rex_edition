@@ -7,7 +7,7 @@ import { FaHouse } from "react-icons/fa6";
 import { IoMdContact } from "react-icons/io";
 import { TbCategoryFilled, TbPencilPlus } from "react-icons/tb";
 import { Button } from "../ui/button";
-import { JubarexContext, JubarexContextType } from "@/app/context";
+
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -17,8 +17,7 @@ type PropTypes = {
 };
 
 const NavigationLinks = ({ mobile = false }: PropTypes) => {
-    const { logout } = useContext(JubarexContext) as JubarexContextType;
-
+ 
     const { userExists, login } = useUser();
     const pathname = usePathname();
 

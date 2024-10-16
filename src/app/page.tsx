@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import Orbits from "@/components/shared/orbits";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { JubarexContext, JubarexContextType } from "./context";
+
 import { useRouter } from "next/navigation";
 import { useUser } from '@/context/userContext';
 

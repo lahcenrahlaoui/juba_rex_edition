@@ -3,13 +3,13 @@
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 
-import { JubarexContext, JubarexContextType } from "@/app/context";
+
 import Logo from "@/components/shared/logo";
 import NavigationLinks from "@/components/shared/navigation-links";
 import ThemeToggle from "@/components/theme-toggle";
 
 const Sidebar = () => {
-  const { user } = useContext(JubarexContext) as JubarexContextType;
+
   const pathname = usePathname();
 
   return (
@@ -18,7 +18,7 @@ const Sidebar = () => {
       <Logo />
 
       {/* Displaying the main navigation links */}
-      {user?.email ? <NavigationLinks /> : ""}
+      
       <NavigationLinks />  
 
       {/* Displaying the theme toggle */}
