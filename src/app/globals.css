@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .main {
+    @apply relative pl-0 pt-[60px] pb-[88px] lg:pb-0 lg:pl-[96px] lg:pt-0;
+  }
+  .invert-white {
+    @apply invert brightness-0 transition;
+  }
+
+  .invert-black {
+    @apply invert brightness-100 transition;
+  }
+
+  .sidebar {
+    @apply z-50 hidden lg:flex fixed px-3 py-4  flex-col justify-between items-center top-0 left-0 h-screen w-[96px] bg-secondary-color-light dark:bg-secondary-color-dark;
+  }
+  .topbar {
+    @apply z-50 flex lg:hidden fixed px-4 py-2  justify-between items-center top-0 left-0 h-[55px] w-full bg-secondary-color-light dark:bg-secondary-color-dark;
+  }
+  .bottom-nav {
+    @apply z-50 flex lg:hidden fixed px-4  justify-center items-center bottom-0 left-0 h-[70px] w-full bg-secondary-color-light dark:bg-secondary-color-dark;
+  }
+
+  .nav-links {
+    @apply font-semibold list-none flex lg:flex-col w-full justify-around lg:justify-center items-center gap-x-4 lg:gap-y-4;
+  }
+
+  .nav-link {
+    @apply duration-300 w-full rounded-md flex justify-center  gap-y-1 lg:gap-y-2 items-center flex-col px-4 py-2 lg:py-4 hover:bg-accent-color-light dark:hover:bg-accent-color-dark;
+  }
+
+  .selected-nav-link {
+    @apply bg-accent-color-light dark:bg-accent-color-dark dark:text-primary-color;
+  }
+
+  .hero {
+    @apply bg-blue-300;
+  }
+
+  .state-card {
+    @apply bg-secondary-color-light/70 dark:bg-secondary-color-dark/70 hover:bg-secondary-color-light dark:hover:bg-secondary-color-dark hover:translate-y-[-8px] duration-300 flex flex-col justify-center items-center w-[105px] lg:w-[150px] py-6 px-4 gap-y-2 lg:gap-y-3 rounded-lg text-center;
+  }
+}
+
+.spin-orbit-3 {
+  animation: spin 18s linear infinite;
+}
+.spin-orbit-2 {
+  animation: spin-reverse 36s linear infinite;
+}
+.spin-orbit-1 {
+  animation: spin 52s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+table,
+th,
+td {
+  border: 1px solid white;
+}
+
+
+
+ 
