@@ -23,7 +23,7 @@ const ItemDetail = ({ params }) => {
 
             {/* Back button */}
             <div className="absolute top-4 sm:top-8 left-4">
-                <Link href="/posts" passHref>
+                <Link href="/artefacts" passHref>
                     <button className="flex items-center bg-transparent border-none cursor-pointer">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
