@@ -8,6 +8,7 @@ export default function ModelViewer({ fileUrl }) {
 
   useEffect(() => {
     const modelViewer = modelRef.current;
+    console.log({modelViewer})
 
     // Example: Add a listener for when the model is loaded
     modelViewer?.addEventListener('load', () => {
@@ -37,7 +38,7 @@ export default function ModelViewer({ fileUrl }) {
         auto-rotate
         camera-controls
         style={{ width: '100%', height: '100%' }}
-        onClick={() => modelRef.current?.setAttribute('camera-controls', 'true')} // Enable camera controls on click
+       
       >
       </model-viewer>
     </div>
