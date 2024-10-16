@@ -68,7 +68,7 @@ const Home = () => {
         return emailPattern.test(email);
     };
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async () => {
         // event.preventDefault(); // Prevent default form submission behavior
 
         // Reset error state
