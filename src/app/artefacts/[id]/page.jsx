@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ModelViewer from "@/components/ModelViewer";
 import { items } from "@/utils/db.js";
 import { motion } from "framer-motion"; // Import motion
-import { useUser } from '@/context/UserContext';
+import { useUser } from '@/context/userContext';
 import { useRouter } from "next/navigation";
 
 const ItemDetail = ({ params }) => {

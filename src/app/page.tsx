@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { JubarexContext, JubarexContextType } from "./context";
 import { useRouter } from "next/navigation";
-import { useUser } from '@/context/UserContext';
+import { useUser } from '@/context/userContext';
 
 const Home = () => {
     const { userExists, login } = useUser(); 
