@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState } from 'react';
 
 // Create a Context
-const UserContext = createContext();
+export const UserContext = createContext();
 
 // Create a Provider component
 export const UserProvider = ({ children }) => {
