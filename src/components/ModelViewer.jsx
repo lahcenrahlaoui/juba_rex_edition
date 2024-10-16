@@ -25,12 +25,12 @@ export default function ModelViewer({ fileUrl }) {
             })();
             initiateAnimations(modelViewer);
         };
-
+        
         const handleModelError = (error) => {
             console.error("Error loading model:", error);
             console.error("Error details:", error.detail);
         };
-
+        
         modelViewer?.addEventListener("load", handleModelLoad);
         modelViewer?.addEventListener("error", handleModelError);
 
@@ -127,16 +127,16 @@ export default function ModelViewer({ fileUrl }) {
             {!modelLoaded && (
                 <motion.div
                     className="flex items-center justify-center h-screen"
-                    initial={{ opacity: 1 }} // Start fully visible
-                    animate={{ opacity: 0 }} // Fade out
-                    transition={{ duration: 4 }} // Duration of fade-out effect
-                >
-                    <div className="absolute inset-0 flex items-center justify-center   ">
-                        <div className="relative flex flex-col items-center">
-                            <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-[#FFB800] animate-spin" />
-                            <div className="w-20 h-20 rounded-full bg-[#FFB800] animate-pulse absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-                        </div>
-                    </div>
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 0 }}
+                    transition={{ duration: modelLoaded ? 0 : 4 }} // Duration changes based on modelLoaded
+                        >
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="relative flex flex-col items-center">
+                                    <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-[#FFB800] animate-spin" />
+                                    <div className="w-20 h-20 rounded-full bg-[#FFB800] animate-pulse absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                                </div>
+                            </div>
                 </motion.div>
             )}
 
