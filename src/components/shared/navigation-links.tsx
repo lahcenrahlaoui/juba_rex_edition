@@ -11,7 +11,7 @@ import { JubarexContext, JubarexContextType } from "@/app/context";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { useUser } from "@/context/UserContext";
+import { useUser } from "@/context/userContext";
 type PropTypes = {
     mobile?: boolean;
 };

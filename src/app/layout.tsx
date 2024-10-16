@@ -15,7 +15,7 @@ import { Layout } from "lucide-react";
 import { useEffect, useState } from "react";
 import { JubarexContext } from "./context";
 
-import { UserProvider } from '@/context/UserContext';
+import { UserProvider } from '@/context/userContext';
 
 const nunito = Nunito({ subsets: ["latin"] });
 
