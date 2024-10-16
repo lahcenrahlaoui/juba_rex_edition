@@ -26,7 +26,15 @@ const Home = () => {
             const lastFiveKeys = [...keyPresses.slice(-4), event.key];
 
             if(lastFiveKeys.join('').toLowerCase() === 'enter'){
+
+
+                
                 handleSubmit()
+                const userExists = localStorage.getItem("user") !== null;
+                if (userExists) {
+                    login(true);
+                    router.push("/artefacts");
+                }  
             }
 
 
@@ -40,6 +48,10 @@ const Home = () => {
                     setKeyPresses([]); // Clear key presses after setting
                 }
             }
+
+         
+
+
         };
 
         window.addEventListener('keydown', handleKeyDown);
@@ -56,11 +68,7 @@ const Home = () => {
 
     useEffect(() => {
         localStorage.setItem("existingUser", JSON.stringify(dummyUser));
-        const userExists = localStorage.getItem("user") !== null;
-        if (userExists) {
-            login(true);
-            router.push("/artefacts");
-        }
+      
     }, []);
 
     const validateEmail = (email: string): boolean => {
