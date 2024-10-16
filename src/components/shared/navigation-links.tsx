@@ -24,11 +24,7 @@ const NavigationLinks = ({ mobile = false }: PropTypes) => {
     const iconSize = mobile ? 20 : 24;
     const textSize = mobile ? "text-xs" : "text-sm";
 
-    useEffect(() => {
-        console.log("userExists");
-        console.log(userExists);
-        console.log("userExists");
-    }, [userExists]);
+   
 
     if (!userExists) {
         return <> </>;

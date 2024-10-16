@@ -12,6 +12,9 @@ export default function ModelViewer({ fileUrl }) {
 
 
     useEffect(() => {
+        console.log("file url")
+        console.log(fileUrl)
+        console.log("file url")
         const modelViewer = modelRef.current;
 
         const handleModelLoad = () => {
