@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ModelViewer from "@/components/ModelViewer";
 import { items } from "@/utils/db.js";
 import { motion } from "framer-motion"; // Import motion
-import { useUser } from '@/context/userContext';
+import { useUser } from "@/context/userContext";
 import { useRouter } from "next/navigation";
 
 const ItemDetail = ({ params }) => {
@@ -13,60 +13,54 @@ const ItemDetail = ({ params }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [showItem, setShowItem] = useState({});
 
-    const { userExists, login  } = useUser(); 
-
-    const router = useRouter();
+    const { login } = useUser();
 
     useEffect(() => {
-
         const userExists = localStorage.getItem("user") !== null;
         if (userExists) {
-            login()
+            login();
         }
+
+        console.log("showItem");
     }, []);
-   
- 
+
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
- 
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
             const selectedItem = items.find((item) => item.id === id);
-            console.log(id);
+            console.log(selectedItem);
             setShowItem(selectedItem || {});
-            (async()=>{
-
-              await  delay(2000)
-              setIsLoading(false);
-            })()
+            (async () => {
+                await delay(2000);
+                setIsLoading(false);
+            })();
         };
 
         fetchData();
     }, [id]);
 
-
     if (isLoading) {
         return (
-            <motion.div 
+            <motion.div
                 className="flex items-center justify-center h-screen"
                 initial={{ opacity: 1 }} // Start fully visible
                 animate={{ opacity: 0 }} // Fade out
                 transition={{ duration: 2 }} // Duration of fade-out effect
             >
-    <div className="absolute inset-0 flex items-center justify-center   ">
-    <div className="relative flex flex-col items-center">
-        <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-[#FFB800] animate-spin" />
-         <div className="w-20 h-20 rounded-full bg-[#FFB800] animate-pulse absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-       </div>
- </div>    
-
-        </motion.div>
+                <div className="absolute inset-0 flex items-center justify-center   ">
+                    <div className="relative flex flex-col items-center">
+                        <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-[#FFB800] animate-spin" />
+                        <div className="w-20 h-20 rounded-full bg-[#FFB800] animate-pulse absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                    </div>
+                </div>
+            </motion.div>
         );
     }
 
     return (
-        <motion.div 
+        <motion.div
             className="relative container mx-auto h-screen p-4 sm:p-8 bg-white dark:bg-black rounded-lg transition-colors duration-300 ease-in-out mb-20"
             initial={{ opacity: 0 }} // Start fully transparent
             animate={{ opacity: 1 }} // Fade in
@@ -112,7 +106,7 @@ const ItemDetail = ({ params }) => {
                 {/* Model Viewer - 3/5 width on larger screens */}
                 <div className="w-[25rem] h-[25rem] flex-1 md:flex-[3] flex items-center justify-center px-4 sm:px-6 order-1 md:order-2">
                     <div className="w-full h-full flex justify-center items-center">
-                        <ModelViewer     fileUrl={showItem?.fileUrl}    />
+                        <ModelViewer fileUrl={showItem?.fileUrl} />
                     </div>
                 </div>
             </div>
