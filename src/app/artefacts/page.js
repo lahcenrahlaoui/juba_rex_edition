@@ -5,6 +5,7 @@ import { items } from "@/utils/db.js";
  
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/context/userContext";
 
 export default function Posts() {
      
@@ -13,8 +14,6 @@ export default function Posts() {
     const router = useRouter();
     useEffect(() => { 
        const userExists  = localStorage.getItem("user") !== null;
-
-
         if(!userExists){
             router.push("/")
         }else{
@@ -22,8 +21,29 @@ export default function Posts() {
         }
     } ,[] )
 
+
+    const { login } = useUser();
+    useEffect(() => {
+        const userExists = localStorage.getItem("user") !== null;
+        if (userExists) login(true); 
+    }, []);
+
+
+
     if(isLoading){
-        return <div>Loading...</div>;  
+        return  <div className={`flex items-center justify-center transition-all duration-500 opacity-100  h-screen`}>
+        <div className="absolute inset-0 flex items-center justify-center">
+            <div
+            className={`relative flex flex-col items-center transition-transform duration-500`}
+            style={{ transform: 'scale(1)' }} // No scaling
+            >
+            <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-[#FFB800] animate-spin" />
+            <div className="w-20 h-20 rounded-full bg-[#FFB800] animate-pulse absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+            </div>
+        </div>
+        </div>
+
+
     }
 
 

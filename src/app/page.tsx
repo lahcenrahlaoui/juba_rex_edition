@@ -58,7 +58,7 @@ const Home = () => {
         localStorage.setItem("existingUser", JSON.stringify(dummyUser));
         const userExists = localStorage.getItem("user") !== null;
         if (userExists) {
-            login();
+            login(true);
             router.push("/artefacts");
         }
     }, []);
@@ -93,7 +93,7 @@ const Home = () => {
         // Validate user credentials
         if (user && user.email === email && user.password === password) {
             localStorage.setItem("user", JSON.stringify(dummyUser));
-            login();
+            login(true);
             router.push("/artefacts");
         } else {
             setError("Incorrect email or password.");

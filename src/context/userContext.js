@@ -9,8 +9,8 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [userExists, setUserExists] = useState(false);
 
-  const login = () => {
-    setUserExists(true);
+  const login = (x) => {
+    setUserExists(x);
   };
 
  

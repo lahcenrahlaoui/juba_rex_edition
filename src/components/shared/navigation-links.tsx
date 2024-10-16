@@ -6,6 +6,9 @@ import { FaRegAddressCard } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";
 import { IoMdContact } from "react-icons/io";
 import { TbCategoryFilled, TbPencilPlus } from "react-icons/tb";
+import { TbLogout } from "react-icons/tb";
+
+
 import { Button } from "../ui/button";
 
 import { useContext, useEffect, useState } from "react";
@@ -24,6 +27,12 @@ const NavigationLinks = ({ mobile = false }: PropTypes) => {
     const iconSize = mobile ? 20 : 24;
     const textSize = mobile ? "text-xs" : "text-sm";
 
+    const router = useRouter()
+    const handleLougout = () =>{
+        localStorage.removeItem("user");
+        login(false)
+        router.push("/")
+    }
    
 
     if (!userExists) {
@@ -51,13 +60,20 @@ const NavigationLinks = ({ mobile = false }: PropTypes) => {
             </Link>
             <Link
                 href="/artefact"
-                className={`nav-link ${
+                className={`nav-link  ${
                     pathname === "/artefact" && "selected-nav-link"
                 }`}
             >
                 <TbPencilPlus size={iconSize} />
                 <p className={textSize}>Artefact</p>
             </Link>
+
+            <div className={`nav-link cursor-pointer `}  onClick={()=>handleLougout()}  >
+                <TbLogout  size={iconSize} />
+                <p className={textSize}>Logout</p>
+            </div>
+
+
             {/* <Link
                 href="/about"
                 className={`nav-link ${

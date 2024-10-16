@@ -12,19 +12,23 @@ const ItemDetail = ({ params }) => {
     const { id } = params;
     const [isLoading, setIsLoading] = useState(true);
     const [showItem, setShowItem] = useState({});
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const { login } = useUser();
-
     useEffect(() => {
         const userExists = localStorage.getItem("user") !== null;
-        if (userExists) {
-            login();
-        }
-
-        console.log("showItem");
+        if (userExists) login(true); 
     }, []);
 
-    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const router = useRouter();
+    useEffect(() => { 
+       const userExists  = localStorage.getItem("user") !== null;
+        if(!userExists){
+            router.push("/")
+        }else{
+            setIsLoading(false)
+        }
+    } ,[] )
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,19 +47,17 @@ const ItemDetail = ({ params }) => {
 
     if (isLoading) {
         return (
-            <motion.div
-                className="flex items-center justify-center h-screen"
-                initial={{ opacity: 1 }} // Start fully visible
-                animate={{ opacity: 0 }} // Fade out
-                transition={{ duration: 2 }} // Duration of fade-out effect
-            >
-                <div className="absolute inset-0 flex items-center justify-center   ">
-                    <div className="relative flex flex-col items-center">
-                        <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-[#FFB800] animate-spin" />
-                        <div className="w-20 h-20 rounded-full bg-[#FFB800] animate-pulse absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+            <div className={`flex items-center justify-center transition-all duration-500 opacity-100  h-screen`}>
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                    className={`relative flex flex-col items-center transition-transform duration-500`}
+                    style={{ transform: 'scale(1)' }} // No scaling
+                    >
+                    <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-[#FFB800] animate-spin" />
+                    <div className="w-20 h-20 rounded-full bg-[#FFB800] animate-pulse absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                     </div>
                 </div>
-            </motion.div>
+                </div>
         );
     }
 
