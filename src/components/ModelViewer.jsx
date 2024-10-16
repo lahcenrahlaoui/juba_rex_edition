@@ -29,6 +29,7 @@ export default function ModelViewer({ fileUrl }) {
 
   return (
     <div className="w-full h-96 flex items-center justify-center">
+      {fileUrl}
       <model-viewer
         ref={modelRef}
         src={fileUrl}

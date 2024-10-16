@@ -11,6 +11,7 @@ const ItemDetail = ({ params }) => {
 
     useEffect(() => {
         const selectedItem = items.find((item) => item.id === id);
+        console.log(selectedItem)
         setShowItem(selectedItem || {});
     }, [id]);
 
