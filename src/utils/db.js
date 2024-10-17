@@ -10,7 +10,7 @@ export const items = [
       id: "2", 
       name: "El Mrach Ethnographique", 
       imageUrl: "/assets/images/El_MRACH.jpg", 
-      fileUrl: "/assets/3d/El_Mrach_Ethnographique.glb", 
+      fileUrl: "/assets/3d/El_Mrach_ethnographique.glb", 
       description: "El Mrach is an exquisite object used for sprinkling rose water during various cultural rituals, enhancing hospitality and creating a welcoming atmosphere for honored guests." 
   },
   { 
@@ -30,14 +30,14 @@ export const items = [
   { 
       id: "5", 
       name: "JUBA Fibule Logo", 
-      imageUrl: "/assets/images/Fibule_Turntable.png", 
+      imageUrl: "/assets/images/Logo.png", 
       fileUrl: "/assets/3d/JUBA_FIBULE_LOGO.glb", 
       description: "This decorative fibula serves both functional and aesthetic purposes, embodying regional craftsmanship and heritage while adding elegance to garments and reflecting cultural identity." 
   },
   { 
       id: "6", 
       name: "JUBA Fibule Smaller", 
-      imageUrl: "/assets/images/Logo.png", 
+      imageUrl: "/assets/images/Fibule_Turntable.png", 
       fileUrl: "/assets/3d/JUBA_FIBULE_Smaller.glb", 
       description: "The JUBA Fibule Smaller is a refined version of the traditional fibula, showcasing elegance and intricacy, and representing the skill of artisans from the region." 
   }
